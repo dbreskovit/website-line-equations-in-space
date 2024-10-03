@@ -1,4 +1,3 @@
-// src/components/LineEquationForm.tsx
 import { useState, useEffect, FormEvent } from 'react';
 import VectorInput from './utils/VectorInput';
 import PointInput from './utils/PointInput';
@@ -10,6 +9,27 @@ const defaultValues = {
   V: { x: 1, y: 0, z: 0 },
   P: { x: 2, y: 2, z: 3 }
 };
+
+const exampleCases = [
+  {
+    P0: { x: 1, y: 2, z: 3 },
+    V: { x: 1, y: 0, z: 0 },
+    P: { x: 2, y: 2, z: 3 },
+    label: "Caso 1"
+  },
+  {
+    P0: { x: 1, y: 2, z: 4 },
+    V: { x: 1, y: 0, z: 0 },
+    P: { x: 2, y: 2, z: 3 },
+    label: "Caso 2"
+  },
+  {
+    P0: { x: -1, y: -2, z: -3 },
+    V: { x: 2, y: 2, z: 2 },
+    P: { x: 0, y: 0, z: 0 },
+    label: "Caso 3"
+  }
+];
 
 function LineEquationForm({ onFormSubmit }: LineEquationFormProps) {
   const [P0, setP0] = useState(defaultValues.P0);
@@ -53,10 +73,16 @@ function LineEquationForm({ onFormSubmit }: LineEquationFormProps) {
     handleSubmit();
   }, []);
 
+  const handleExampleClick = (example: typeof exampleCases[0]) => {
+    setP0(example.P0);
+    setV(example.V);
+    setP(example.P);
+    setResult('');
+  };
+
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className="relative flex flex-col items-center gap-4">
       <form className="flex flex-col gap-4 w-full max-w-lg" onSubmit={handleSubmit}>
-        
         <h1 className="text-2xl sm:text-4xl font-bold text-white mb-4">Equação paramétrica da reta</h1>
         <VectorInput label="Ponto Inicial" vector={P0} onChange={setP0} />
         <VectorInput label="Vetor Diretor" vector={V} onChange={setV} />
@@ -69,6 +95,17 @@ function LineEquationForm({ onFormSubmit }: LineEquationFormProps) {
         </button>
         <ResultLabel result={result} />
       </form>
+      <div className="fixed bottom-4 right-4 flex flex-col space-y-2 z-50">
+        {exampleCases.map((example, index) => (
+          <button
+            key={index}
+            onClick={() => handleExampleClick(example)}
+            className="bg-gray-700 text-white rounded-lg py-1 px-2 hover:bg-gray-800 transition-colors duration-300"
+          >
+            {example.label}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
