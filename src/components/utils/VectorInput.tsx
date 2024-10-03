@@ -12,7 +12,7 @@ const VectorInput: React.FC<VectorInputProps> = ({ label, vector, onChange }) =>
   return (
     <div className="flex flex-col space-y-2">
       <label className="text-white font-semibold">{label}:</label>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex gap-2">
         <Input
           type="number"
           placeholder="x"

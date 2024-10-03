@@ -1,3 +1,4 @@
+// src/components/utils/Input.tsx
 import React from 'react';
 
 interface InputProps {
@@ -14,7 +15,7 @@ const Input: React.FC<InputProps> = ({ type, placeholder, value, onChange }) => 
       placeholder={placeholder}
       value={value}
       onChange={(e) => onChange(Number(e.target.value))}
-      className="border rounded-lg py-2 px-3 bg-slate-900 border-indigo-600 placeholder-gray-400 text-white flex-1 min-w-[60px]"
+      className="border rounded-lg py-1 px-2 bg-slate-900 border-indigo-600 placeholder-gray-400 text-white flex-1 w-20"
     />
   );
 };

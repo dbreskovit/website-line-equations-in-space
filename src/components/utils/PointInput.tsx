@@ -10,9 +10,9 @@ interface PointInputProps {
 
 const PointInput: React.FC<PointInputProps> = ({ label, point, onChange }) => {
   return (
-    <div className="flex flex-col space-y-2">
+    <div className="flex flex-col space-y-2 w-full">
       <label className="text-white font-semibold">{label}:</label>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex gap-2 w-full">
         <Input
           type="number"
           placeholder="x"

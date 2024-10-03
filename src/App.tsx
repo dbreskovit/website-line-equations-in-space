@@ -15,7 +15,7 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-slate-950 text-white">
-      <div className="flex-none md:w-1/3 p-4 bg-slate-900 border-r border-slate-800">
+      <div className="flex-none md:w-1/3 p-2 pt-10 bg-slate-900 border-r border-slate-800">
         <LineEquationForm onFormSubmit={handleFormSubmit} />
       </div>
       <div className="flex-1 p-4">

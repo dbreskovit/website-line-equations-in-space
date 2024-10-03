@@ -54,11 +54,9 @@ function LineEquationForm({ onFormSubmit }: LineEquationFormProps) {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center h-full px-4 sm:px-8">
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col space-y-4 bg-slate-950 border border-slate-900 rounded-lg shadow-lg w-full max-w-md p-6 sm:p-8"
-      >
+    <div className="flex flex-col items-center gap-4">
+      <form className="flex flex-col gap-4 w-full max-w-lg" onSubmit={handleSubmit}>
+        
         <h1 className="text-2xl sm:text-4xl font-bold text-white mb-4">Equação paramétrica da reta</h1>
         <VectorInput label="Ponto Inicial" vector={P0} onChange={setP0} />
         <VectorInput label="Vetor Diretor" vector={V} onChange={setV} />

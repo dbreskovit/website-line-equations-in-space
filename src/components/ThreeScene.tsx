@@ -100,7 +100,7 @@ const ArrowHelper = ({ direction, length, color }: { direction: THREE.Vector3; l
 };
 
 const ThreeCanvas: React.FC<{ P0: Vector3; V: Vector3; P: Vector3 }> = ({ P0, V, P }) => (
-  <Canvas className="w-full h-full min-h-[300px] md:min-h-[500px]" style={{ aspectRatio: '16/9' }}>
+  <Canvas className="w-full h-full" camera={{ position: [10, 10, 10] }}>
     <ThreeScene P0={P0} V={V} P={P} />
   </Canvas>
 );
